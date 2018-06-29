@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> 
 
 void jump_round(int* array, int max_size, int index, int i) 
 {
@@ -20,7 +21,7 @@ void jump(int* array, int max_size, int n, int i)
 	}
 }
 
-void left_rotation_jump(int* array, int max_size, int i)
+void left_rotation(int* array, int max_size, int i)
 {
 	int n = max_size; 
 	if (0 == n || n == i)
@@ -37,17 +38,17 @@ void left_rotation_jump(int* array, int max_size, int i)
 
 	do {
 		int temp = i; 
-		i = abs(i - (n - i)); 
-		n = i; 
+		i = abs(i - (n % i)); 
+		n = temp; 
 		jump(array, max_size, n, i); 
 	} while(1 < i && 0 != n%i); 
 }
 
-void print(int* array, int max_size, char* reason) 
+void print(int* array, int max_size, const char* reason) 
 {
-	char buffer[100] = '\0'; 
+	char buffer[100] = {'\0'}; 
 	for (int i = 0; i < max_size; ++i) {
-		sprintf(buffer, "%d ", array[i]); 
+		sprintf(buffer, "%s %d", buffer, array[i]); 
 	}
 	printf("%s: %s\n\n", reason, buffer); 
 }
@@ -66,35 +67,35 @@ int main()
 	reset(array, max_size); 
 	print(array, max_size, "default"); 
 
-	left_rotation_jump(array, max_size, 1); 
+	left_rotation(array, max_size, 1); 
 	print(array, max_size, "move 1"); 
 
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 2); 
+	left_rotation(array, max_size, 2); 
 	print(array, max_size, "move 2"); 
 
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 3); 
+	left_rotation(array, max_size, 3); 
 	print(array, max_size, "move 3"); 
 
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 4); 
+	left_rotation(array, max_size, 5); 
 	print(array, max_size, "move 5"); 
 
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 7); 
+	left_rotation(array, max_size, 7); 
 	print(array, max_size, "move 7"); 
 
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 8); 
+	left_rotation(array, max_size, 8); 
 	print(array, max_size, "move 8"); 
 
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 13); 
+	left_rotation(array, max_size, 13); 
 	print(array, max_size, "move 13"); 
 	
 	reset(array, max_size); 
-	left_rotation_jump(array, max_size, 15); 
+	left_rotation(array, max_size, 15); 
 	print(array, max_size, "move 15"); 
 	
 	return 0; 
