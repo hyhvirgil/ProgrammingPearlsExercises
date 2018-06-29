@@ -9,8 +9,10 @@ inoremap () ()
 inoremap (<Esc> (<Esc>
 inoremap [ []<Left>
 inoremap [] []
+inoremap [<Esc> [<Esc>
 inoremap { {}<Left>
 inoremap {} {}
+inoremap {<Esc> {<Esc>
 inoremap {<CR> {}<Left><CR><Esc>O
 set showmode 
 set number
