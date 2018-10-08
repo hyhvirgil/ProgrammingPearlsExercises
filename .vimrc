@@ -17,4 +17,5 @@ inoremap {<CR> {}<Left><CR><Esc>O
 set showmode 
 set number
 cabbrev E Explore 
-
+set tags=tags;/
+noremap <C-k><C-b> :NERDTreeToggle<cr>
