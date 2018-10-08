@@ -16,4 +16,5 @@ inoremap {<Esc> {<Esc>
 inoremap {<CR> {}<Left><CR><Esc>O
 set showmode 
 set number
+cabbrev E Explore 
 
